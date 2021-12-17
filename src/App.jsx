@@ -49,6 +49,7 @@ function useForceUpdate() {
 
 const App = () => {
 
+
   const [pictureURLs, setPictureURLs] = useState([]);
   const [sepatePictureURL, setSeparatePictureURL] = useState("");
   const [info, setInfo] = useState({});
@@ -65,8 +66,7 @@ const App = () => {
     const getPictures = async () => {
       const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/pictures`, {
         headers: {
-          Authorization: process.env.REACT_APP_TOKEN
-
+          Authorization: process.env.REACT_APP_API_TOKEN
         }
       });
 
@@ -77,7 +77,7 @@ const App = () => {
     const getInfo = async () => {
       const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/info`, {
         headers: {
-          Authorization: process.env.REACT_APP_TOKEN
+          Authorization: process.env.REACT_APP_API_TOKEN
         }
       });
 
@@ -109,7 +109,7 @@ const App = () => {
         "email": info.email,
       }, {
         headers: {
-          Authorization: process.env.REACT_APP_TOKEN
+          Authorization: process.env.REACT_APP_API_TOKEN
         }
       }); // aqui usamos o axios para fazer uma requisição post
       alert("Sucesso! Sua mensagem foi enviada!"); // alerta de sucesso
@@ -260,10 +260,10 @@ const App = () => {
 
             <div>
               <p><b>Aceitamos Pix </b></p>
-              <p>81988222055</p>
+              <p>{info.pix}</p>
               <p><b>Ou</b></p>
               <p><b>Transferência bancária</b></p>
-              <p>Banco do Brasil Ag.: 0007-8 cc.: 6083-6</p>
+              <p>{info.account}</p>
             </div>
           </span>
         </div>
