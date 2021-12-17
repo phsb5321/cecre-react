@@ -107,6 +107,7 @@ const App = () => {
         "name": `${emailContent.name} - ${emailContent.email}`,
         "message": emailContent.message,
         "email": info.email,
+        "to": "ongcecre@gmail.com"
       }, {
         headers: {
           Authorization: process.env.REACT_APP_API_TOKEN
