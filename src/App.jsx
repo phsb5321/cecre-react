@@ -106,12 +106,8 @@ const App = () => {
       await axios.post(`${process.env.REACT_APP_API_URL}/email`, {
         "name": `${emailContent.name} - ${emailContent.email}`,
         "message": emailContent.message,
-<<<<<<< HEAD
         "email": info.email,
         "to": "ongcecre@gmail.com"
-=======
-        "from": info.email,
->>>>>>> 27239a9dfd7e1a02532fb4d97424e1837c018170
       }, {
         headers: {
           Authorization: process.env.REACT_APP_API_TOKEN
