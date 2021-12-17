@@ -378,6 +378,10 @@ export const FifthSection = styled.section`
         background: #3f77bf;
         border-radius: 40px;
 
+        :hover {
+          cursor: pointer;
+        }
+
         p {
           font-style: normal;
           font-weight: 500;
