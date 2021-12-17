@@ -106,7 +106,7 @@ const App = () => {
       await axios.post(`${process.env.REACT_APP_API_URL}/email`, {
         "name": `${emailContent.name} - ${emailContent.email}`,
         "message": emailContent.message,
-        "email": info.email,
+        "from": info.email,
       }, {
         headers: {
           Authorization: process.env.REACT_APP_API_TOKEN
