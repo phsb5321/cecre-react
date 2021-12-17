@@ -63,9 +63,10 @@ const App = () => {
 
   useEffect(() => {
     const getPictures = async () => {
-      const { data } = await axios.get("http://localhost:1337/pictures", {
+      const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/pictures`, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM5NzE0ODQ1LCJleHAiOjE2NDIzMDY4NDV9.F3N1n60ZKUYRb9TuldGML0i4H4nwawdAUXp00CJ1l6c`
+          Authorization: process.env.REACT_APP_TOKEN
+
         }
       });
 
@@ -74,9 +75,9 @@ const App = () => {
     };
 
     const getInfo = async () => {
-      const { data } = await axios.get("http://localhost:1337/info", {
+      const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/info`, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM5NzE0ODQ1LCJleHAiOjE2NDIzMDY4NDV9.F3N1n60ZKUYRb9TuldGML0i4H4nwawdAUXp00CJ1l6c`
+          Authorization: process.env.REACT_APP_TOKEN
         }
       });
 
@@ -102,13 +103,13 @@ const App = () => {
     try {
       event.preventDefault();
       console.log(emailContent);
-      await axios.post(`${"localhost:1337"}/email`, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/email`, {
         "name": `${emailContent.name} - ${emailContent.email}`,
-        "message": emailContent.message, 
+        "message": emailContent.message,
         "email": info.email,
       }, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM5NzE0ODQ1LCJleHAiOjE2NDIzMDY4NDV9.F3N1n60ZKUYRb9TuldGML0i4H4nwawdAUXp00CJ1l6c`
+          Authorization: process.env.REACT_APP_TOKEN
         }
       }); // aqui usamos o axios para fazer uma requisição post
       alert("Sucesso! Sua mensagem foi enviada!"); // alerta de sucesso
